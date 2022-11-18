@@ -1,1 +1,11 @@
-This is a head
+<body>
+
+    <script>
+
+        var a=1;
+
+        alert(a);    
+
+    </script>
+
+</body>
