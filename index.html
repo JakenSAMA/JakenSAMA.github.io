@@ -3,36 +3,48 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>KFC Crazy Text - Vertical</title>
+    <title>KFC Crazy Text with Cat!</title>
     <style>
         /* CSS 样式部分 */
 
-        /* 基础页面设置，让内容垂直水平居中 */
+        /* 基础页面设置 */
         html, body {
             height: 100%;
             margin: 0;
             display: flex;
-            justify-content: center;
-            align-items: center;
-            background-color: #000; /* 使用纯黑背景 */
-            overflow: hidden; /* 防止文字过大时出现滚动条 */
+            
+            /* --- 主要改动 1 --- */
+            /* 将主轴方向改为垂直，让图片和文字可以上下排列 */
+            flex-direction: column; 
+            
+            justify-content: center; /* 水平居中 */
+            align-items: center;     /* 垂直居中 */
+            background-color: #000;
+            overflow: hidden;
+            padding: 20px; /* 添加一些内边距，防止内容紧贴边缘 */
+            box-sizing: border-box;
         }
 
-        /* ---------------------------------------------------- */
-        /* --- 自适应文字大小的核心部分 --- */
-        /* ---------------------------------------------------- */
+        /* --- 主要改动 2 --- */
+        /* 为 GIF 动态图添加样式 */
+        .cat-gif {
+            /* 限制图片的最大宽度，使其在任何屏幕上都不会过大 */
+            max-width: 80%; 
+            /* 限制最大高度，防止图片在竖屏手机上过高 */
+            max-height: 40vh; /* vh 是视窗高度的单位 */
+            height: auto; /* 保持图片原始宽高比 */
+            /* 在图片下方增加一些间距 */
+            margin-bottom: 20px; 
+        }
 
-        /* 1. 默认样式 (用于桌面等大屏幕) */
+
+        /* 闪烁文字的样式 (基本保持不变) */
         .crazy-text {
             font-family: Impact, Arial Black, "Heiti SC", "Microsoft YaHei", sans-serif;
             font-weight: bold;
             text-align: center;
-            
-            /* 调整了字体大小和行高以适应垂直布局 */
-            font-size: 10vw; 
-            line-height: 1.1; /* 行与行之间的间距 */
-
-            /* 应用下面定义的动画效果 */
+            font-size: 10vw;
+            line-height: 1.1;
             animation: crazyColors 0.4s steps(1, end) infinite;
             text-shadow: 
                 0 0 7px #fff, 
@@ -41,42 +53,30 @@
                 0 0 35px #00f;
         }
 
-        /* 2. 针对中等屏幕 (如平板电脑) 的样式 */
-        /* 当屏幕宽度小于或等于 992px 时，应用这些样式 */
+        /* 媒体查询，用于自适应 (基本保持不变) */
         @media (max-width: 992px) {
-            .crazy-text {
-                font-size: 13vw;
-                line-height: 1.2;
-            }
+            .crazy-text { font-size: 13vw; }
         }
-
-        /* 3. 针对小屏幕 (如手机) 的样式 */
-        /* 当屏幕宽度小于或等于 600px 时，应用这些样式 */
         @media (max-width: 600px) {
-            .crazy-text {
-                font-size: 16vw;
-                line-height: 1.2;
-            }
+            .crazy-text { font-size: 16vw; }
         }
 
-
-        /* ---------------------------------------------------- */
-        /* --- 颜色闪烁动画部分 (与之前相同) --- */
-        /* ---------------------------------------------------- */
-
+        /* 颜色闪烁动画 (保持不变) */
         @keyframes crazyColors {
-            0%   { color: #ff00de; } /* 亮粉 */
-            15%  { color: #76ff03; } /* 亮绿 */
-            30%  { color: #03a9f4; } /* 亮蓝 */
-            45%  { color: #ffff00; } /* 亮黄 */
-            60%  { color: #00ffff; } /* 青色 */
-            75%  { color: #ff00ff; } /* 品红 */
-            90%  { color: #ff5722; } /* 亮橙 */
-            100% { color: #ffffff; } /* 白色 */
+            0%   { color: #ff00de; }
+            15%  { color: #76ff03; }
+            30%  { color: #03a9f4; }
+            45%  { color: #ffff00; }
+            60%  { color: #00ffff; }
+            75%  { color: #ff00ff; }
+            90%  { color: #ff5722; }
+            100% { color: #ffffff; }
         }
     </style>
 </head>
 <body>
+
+    <img src="happycat.gif" alt="一只开心的猫在摇摆" class="cat-gif">
 
     <h1 class="crazy-text">
         KFC<br>
