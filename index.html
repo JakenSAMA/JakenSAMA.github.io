@@ -3,66 +3,75 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>KFC Crazy Text</title>
+    <title>KFC#CRAZY4#VME#50</title>
     <style>
         /* CSS 样式部分 */
 
-        /* 让整个页面背景为黑色，方便突出彩色文字 */
+        /* 基础页面设置，让内容垂直水平居中 */
         html, body {
             height: 100%;
             margin: 0;
-            display: flex; /* 使用 Flexbox 布局 */
-            justify-content: center; /* 水平居中 */
-            align-items: center; /* 垂直居中 */
-            background-color: #111;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #111; /* 深色背景以突出文字 */
             overflow: hidden; /* 防止文字过大时出现滚动条 */
         }
 
-        /* 设置文字的样式 */
+        /* ---------------------------------------------------- */
+        /* --- 自适应文字大小的核心部分 --- */
+        /* ---------------------------------------------------- */
+
+        /* 1. 默认样式 (用于桌面等大屏幕) */
         .crazy-text {
-            /* 使用一个有冲击力的无衬线字体 */
-            font-family: Arial, Helvetica, "Heiti SC", "Microsoft YaHei", sans-serif;
-            
-            /* * 设置超大字体。12vw 表示字体大小是视窗宽度的12%。
-             * 这样文字会根据浏览器窗口大小自动缩放，始终保持很大。
-             */
-            font-size: 12vw;
-            
-            /* 加粗 */
+            font-family: Impact, Arial Black, "Heiti SC", "Microsoft YaHei", sans-serif;
+            font-size: 12vw; /* vw 单位让字体大小与视窗宽度成正比 */
             font-weight: bold;
-            
-            /* 文本居中对齐（对于多行情况） */
             text-align: center;
-            
-            /* 添加一些文本阴影，让闪烁效果更酷 */
+            line-height: 1.1;
+            /* 应用下面定义的动画效果 */
+            animation: crazyColors 0.5s steps(1, end) infinite;
             text-shadow: 
                 0 0 5px #fff, 
                 0 0 10px #fff, 
-                0 0 15px #00f, 
-                0 0 20px #00f;
-            
-            /* * 应用动画效果！
-             * 'crazyColors' 是下面 @keyframes 定义的动画名称。
-             * '0.5s' 是每次颜色变化的速度，可以调得更快或更慢。
-             * 'steps(1, end)' 让颜色是“跳变”而不是平滑过渡，产生“闪烁”感。
-             * 'infinite' 表示动画无限循环。
-             */
-            animation: crazyColors 0.5s steps(1, end) infinite;
+                0 0 20px #00f, 
+                0 0 30px #00f;
         }
 
-        /* * @keyframes 定义动画的关键帧。
-         * 我们在这里定义了一个名为 crazyColors 的动画，
-         * 它在一系列的时间点（0% 到 100%）改变文字的 color 属性。
-         */
+        /* 2. 针对中等屏幕 (如平板电脑) 的样式 */
+        /* 当屏幕宽度小于或等于 992px 时，应用这些样式 */
+        @media (max-width: 992px) {
+            .crazy-text {
+                /* 在中等屏幕上，让字体相对更大一些 */
+                font-size: 15vw;
+            }
+        }
+
+        /* 3. 针对小屏幕 (如手机) 的样式 */
+        /* 当屏幕宽度小于或等于 600px 时，应用这些样式 */
+        @media (max-width: 600px) {
+            .crazy-text {
+                /* 在手机上，让字体相对屏幕宽度更大，更有冲击力 */
+                font-size: 18vw;
+                /* 允许单词内换行，防止超长文本溢出屏幕 */
+                word-break: break-all;
+            }
+        }
+
+
+        /* ---------------------------------------------------- */
+        /* --- 颜色闪烁动画部分 (与之前相同) --- */
+        /* ---------------------------------------------------- */
+
         @keyframes crazyColors {
-            0%   { color: red; }
-            15%  { color: lime; }
-            30%  { color: blue; }
-            45%  { color: yellow; }
-            60%  { color: cyan; }
-            75%  { color: magenta; }
-            90%  { color: orange; }
-            100% { color: white; }
+            0%   { color: #ff0000; } /* 红 */
+            15%  { color: #00ff00; } /* 绿 */
+            30%  { color: #0000ff; } /* 蓝 */
+            45%  { color: #ffff00; } /* 黄 */
+            60%  { color: #00ffff; } /* 青 */
+            75%  { color: #ff00ff; } /* 品红 */
+            90%  { color: #ffa500; } /* 橙 */
+            100% { color: #ffffff; } /* 白 */
         }
     </style>
 </head>
