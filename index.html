@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KFC Crazy Text</title>
+    <style>
+        /* CSS 样式部分 */
+
+        /* 让整个页面背景为黑色，方便突出彩色文字 */
+        html, body {
+            height: 100%;
+            margin: 0;
+            display: flex; /* 使用 Flexbox 布局 */
+            justify-content: center; /* 水平居中 */
+            align-items: center; /* 垂直居中 */
+            background-color: #111;
+            overflow: hidden; /* 防止文字过大时出现滚动条 */
+        }
+
+        /* 设置文字的样式 */
+        .crazy-text {
+            /* 使用一个有冲击力的无衬线字体 */
+            font-family: Arial, Helvetica, "Heiti SC", "Microsoft YaHei", sans-serif;
+            
+            /* * 设置超大字体。12vw 表示字体大小是视窗宽度的12%。
+             * 这样文字会根据浏览器窗口大小自动缩放，始终保持很大。
+             */
+            font-size: 12vw;
+            
+            /* 加粗 */
+            font-weight: bold;
+            
+            /* 文本居中对齐（对于多行情况） */
+            text-align: center;
+            
+            /* 添加一些文本阴影，让闪烁效果更酷 */
+            text-shadow: 
+                0 0 5px #fff, 
+                0 0 10px #fff, 
+                0 0 15px #00f, 
+                0 0 20px #00f;
+            
+            /* * 应用动画效果！
+             * 'crazyColors' 是下面 @keyframes 定义的动画名称。
+             * '0.5s' 是每次颜色变化的速度，可以调得更快或更慢。
+             * 'steps(1, end)' 让颜色是“跳变”而不是平滑过渡，产生“闪烁”感。
+             * 'infinite' 表示动画无限循环。
+             */
+            animation: crazyColors 0.5s steps(1, end) infinite;
+        }
+
+        /* * @keyframes 定义动画的关键帧。
+         * 我们在这里定义了一个名为 crazyColors 的动画，
+         * 它在一系列的时间点（0% 到 100%）改变文字的 color 属性。
+         */
+        @keyframes crazyColors {
+            0%   { color: red; }
+            15%  { color: lime; }
+            30%  { color: blue; }
+            45%  { color: yellow; }
+            60%  { color: cyan; }
+            75%  { color: magenta; }
+            90%  { color: orange; }
+            100% { color: white; }
+        }
+    </style>
+</head>
+<body>
+
+    <h1 class="crazy-text">KFC#CRAZY4#VME#50</h1>
+
+</body>
+</html>
