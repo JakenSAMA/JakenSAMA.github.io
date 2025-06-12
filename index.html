@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>VME50</title>
     <style>
-    /* python3 cryptography */
+        /* python3 cryptography */
         html, body {
             height: 100%;
             margin: 0;
@@ -14,24 +14,26 @@
             justify-content: center;
             align-items: center; 
             background-color: #000;
-            overflow: hidden;
-            padding: 20px;
+            padding: 15px;
             box-sizing: border-box;
+            overflow-y: auto; 
         }
-        
+
         .cat-gif {
             max-width: 80%; 
-            max-height: 40vh; 
+            max-height: 40vh;
             height: auto; 
             margin-bottom: 20px; 
         }
+
         
         .crazy-text {
             font-family: Impact, Arial Black, "Heiti SC", "Microsoft YaHei", sans-serif;
             font-weight: bold;
             text-align: center;
-            font-size: 10vw;
             line-height: 1.1;
+            font-size: clamp(4rem, 12vw, 180px);
+
             animation: crazyColors 0.4s steps(1, end) infinite;
             text-shadow: 
                 0 0 7px #fff, 
@@ -40,11 +42,10 @@
                 0 0 35px #00f;
         }
 
-        @media (max-width: 992px) {
-            .crazy-text { font-size: 13vw; }
-        }
         @media (max-width: 600px) {
-            .crazy-text { font-size: 16vw; }
+            .cat-gif {
+                max-height: 30vh;
+            }
         }
 
         @keyframes crazyColors {
@@ -61,13 +62,14 @@
     </style>
 </head>
 <body>
+    
     <img src="happycat.gif" alt="happycat" class="cat-gif">
 
     <h1 class="crazy-text">
         KFC<br>
         CRAZY4<br>
         VME<br>
-        50<br>
+        50
     </h1>
+
 </body>
-</html>
