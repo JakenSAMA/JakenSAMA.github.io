@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>KFC#CRAZY4#VME#50</title>
+    <title>KFC Crazy Text - Vertical</title>
     <style>
         /* CSS 样式部分 */
 
@@ -14,7 +14,7 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            background-color: #111; /* 深色背景以突出文字 */
+            background-color: #000; /* 使用纯黑背景 */
             overflow: hidden; /* 防止文字过大时出现滚动条 */
         }
 
@@ -25,25 +25,28 @@
         /* 1. 默认样式 (用于桌面等大屏幕) */
         .crazy-text {
             font-family: Impact, Arial Black, "Heiti SC", "Microsoft YaHei", sans-serif;
-            font-size: 12vw; /* vw 单位让字体大小与视窗宽度成正比 */
             font-weight: bold;
             text-align: center;
-            line-height: 1.1;
+            
+            /* 调整了字体大小和行高以适应垂直布局 */
+            font-size: 10vw; 
+            line-height: 1.1; /* 行与行之间的间距 */
+
             /* 应用下面定义的动画效果 */
-            animation: crazyColors 0.5s steps(1, end) infinite;
+            animation: crazyColors 0.4s steps(1, end) infinite;
             text-shadow: 
-                0 0 5px #fff, 
-                0 0 10px #fff, 
-                0 0 20px #00f, 
-                0 0 30px #00f;
+                0 0 7px #fff, 
+                0 0 12px #fff, 
+                0 0 25px #00f, 
+                0 0 35px #00f;
         }
 
         /* 2. 针对中等屏幕 (如平板电脑) 的样式 */
         /* 当屏幕宽度小于或等于 992px 时，应用这些样式 */
         @media (max-width: 992px) {
             .crazy-text {
-                /* 在中等屏幕上，让字体相对更大一些 */
-                font-size: 15vw;
+                font-size: 13vw;
+                line-height: 1.2;
             }
         }
 
@@ -51,10 +54,8 @@
         /* 当屏幕宽度小于或等于 600px 时，应用这些样式 */
         @media (max-width: 600px) {
             .crazy-text {
-                /* 在手机上，让字体相对屏幕宽度更大，更有冲击力 */
-                font-size: 18vw;
-                /* 允许单词内换行，防止超长文本溢出屏幕 */
-                word-break: break-all;
+                font-size: 16vw;
+                line-height: 1.2;
             }
         }
 
@@ -64,20 +65,25 @@
         /* ---------------------------------------------------- */
 
         @keyframes crazyColors {
-            0%   { color: #ff0000; } /* 红 */
-            15%  { color: #00ff00; } /* 绿 */
-            30%  { color: #0000ff; } /* 蓝 */
-            45%  { color: #ffff00; } /* 黄 */
-            60%  { color: #00ffff; } /* 青 */
+            0%   { color: #ff00de; } /* 亮粉 */
+            15%  { color: #76ff03; } /* 亮绿 */
+            30%  { color: #03a9f4; } /* 亮蓝 */
+            45%  { color: #ffff00; } /* 亮黄 */
+            60%  { color: #00ffff; } /* 青色 */
             75%  { color: #ff00ff; } /* 品红 */
-            90%  { color: #ffa500; } /* 橙 */
-            100% { color: #ffffff; } /* 白 */
+            90%  { color: #ff5722; } /* 亮橙 */
+            100% { color: #ffffff; } /* 白色 */
         }
     </style>
 </head>
 <body>
 
-    <h1 class="crazy-text">KFC#CRAZY4#VME#50</h1>
+    <h1 class="crazy-text">
+        KFC<br>
+        CRAZY4<br>
+        VME<br>
+        50
+    </h1>
 
 </body>
 </html>
